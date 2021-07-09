@@ -1,0 +1,29 @@
+<h1 class="titulo"> Detalhes da Reserva</h1>
+    <form>
+       <label><b>Nome do Hotel: </b></label>&nbsp; &nbsp;{{hotel}}<br><br>
+       <label><b>Check-In:</b></label> &nbsp; &nbsp; <input type="date" id="data" name="data" value={{data}} disabled> &nbsp; &nbsp; <label><b>Check-Out:</b></label> &nbsp; &nbsp;
+       <input type="date" id="dataF" name="dataF" value={{dataF}} disabled><br><br>
+       <label><b>Tipo de Quarto:</b></label> &nbsp; &nbsp;<input type="text" id="quartos" value={{tipoDeQuarto}} disabled>&nbsp; &nbsp;<label><b>Custo: </b>{{custo}}€</label><br><br>
+    </form>
+    <form>
+        <label for="nome"><b>Nome:</b></label>&nbsp;&nbsp;<input type="text" id="nome" value={{nome}} name="nome" disabled><br><br>
+        <label for="morada"><b>Morada:</b></label>&nbsp;&nbsp;
+        <input type="text" id="morada" value={{morada}} name="morada" disabled><br><br>
+        <label for="telefone"><b>Telefone:</b></label>&nbsp;&nbsp;
+        <input type="tel" id="telefone" value={{telefone}} disabled name="telefone"><br><br>
+        <label for="email"><b>Email:</b></label>&nbsp;&nbsp;
+        <input type="email" disabled value={{email}} id="email"><br><br>
+        <label for="NIF"><b>NIF:</b></label>&nbsp;&nbsp;
+        <input type="number" id="NIF" value={{NIF}} name="NIF" disabled><br><br>
+    </form>
+
+    <form>
+        <label for="numCartao"><b>Número do cartão:</b></label>&nbsp;&nbsp;
+        <input type="tel" id="numCartao" value={{numCartao}} name="numCartao" disabled><br><br>
+        <label for="prazoValidade"><b>Prazo de validade:</b></label>&nbsp;&nbsp;
+        <input type="date" id="dataValidade" value={{prazoValidade}} name="data" disabled><br><br>
+        <label for="codigoCVV"><b>Código CVV:</b></label>&nbsp;&nbsp;                                                       
+        <input type="number" id="codigoCVV" value={{codigoCVV}} name="codigoCVV" disabled> <br>
+        <br>
+        <button class="btn btn-primary" (click)="close()">Alterar Dados</button> &nbsp;&nbsp; <button class="btn btn-primary" (click)="createReserva()">Confirmar Reserva</button>
+    </form>

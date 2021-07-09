@@ -1,0 +1,19 @@
+<h2>Lista de tipos de quartos</h2>
+<div class = "containers">
+    <div *ngFor ="let tipo of tiposQuartos">
+        <a href="/tipoDeQuarto/{{ tipo._id }}">
+        {{tipo.tipo}}</a>
+        <div class = "col-md-3">
+            {{tipo.nquarto}}
+        </div>
+        <div>
+            <p>Servicos:</p>
+            <ul>
+                <li *ngFor="let servico of tipo.servicos">
+                    {{servico}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

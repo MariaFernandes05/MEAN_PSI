@@ -1,0 +1,28 @@
+<br>
+    <span>
+        <a href="javascript:void(0)" (click)="goBack()" >
+            <button type="button"class="btn btn-primary"> Voltar </button>
+        </a><br><br>
+        <h1 class="titulo"> Reserva para {{reserva.tipoDeQuarto}} no Hotel {{reserva.hotel}}</h1>
+    </span>
+    <form #d="ngForm" id="primeiro" novalidate>
+       <h2>Confirmar Datas</h2>
+       <label>Check-In:</label> &nbsp;
+       <input type="date" id="data" min={{dataHoje}} (ngModelChange)="filtroDatas()" ngModel name="data" required>&nbsp;&nbsp;&nbsp;
+       <label>Check-Out:</label> &nbsp; <input type="date" (ngModelChange)="filtroDatas()" id="dataF" min={{dataHoje}} ngModel name="dataF" required>
+       &nbsp;&nbsp;&nbsp; <span id="custo" >Custo: &nbsp; {{reserva.custo}}€ </span><br><br><br>
+       <button id="b" (click)="mostraCartao()" class="btn btn-primary"> Confirmar Datas </button>
+       <div style="display:none" id="q1">
+       		<p> Pretende efetuar o pagamento com o mesmo cartão?</p>
+       		<button class="btn btn-primary" (click)="esconde()">Sim</button> &nbsp; &nbsp; &nbsp;  <button class="btn btn-primary" (click)="enable()">Não</button>
+       </div><br><br>
+       <p style="display:none" id ="q2"> A diferença dos valores será creditada neste cartão que foi utilizado para o pagamento</p>
+       <div id="dadosCartao" style="display:none">                                                                      
+       	<label for="numCartao">Número do cartão:</label><br>
+       	<input type="tel" id="numCartao" disabled ngModel pattern="[0-9]{16}" name="numCartao" required><br><br>
+       	<label for="prazoValidade">Prazo de validade:</label><br>
+       	<input type="date" id="dataValidade" min={{dataHoje}} ngModel disabled name="dataV" required><br><br>                   <label for="codigoCVV">Código CVV:</label><br>
+       	<input type="number" id="codigoCVV" disabled ngModel name="codigoCVV" pattern="[0-9]{3,4}" required><br><br>
+       	<button (click)="updateReserva()" class="btn btn-primary" id="concluir"> Alterar Reserva </button>
+       </div>
+    </form><br>

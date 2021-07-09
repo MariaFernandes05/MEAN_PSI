@@ -1,0 +1,23 @@
+
+<div class="html">
+
+    <br>
+    <h2>{{tipoDeQuarto.tipo}}</h2> 
+    <div >
+      <p><b>preco epoca baixa:</b> <span>{{tipoDeQuarto.precoEpocaBaixa}}</span>€ &nbsp; &nbsp;15/1/2021 - 31/5/2021  30/9/2021 - 31/12/2021</p>
+      <p><b>preco epoca alta:</b> <span>{{tipoDeQuarto.precoEpocaAlta}}</span>€  &nbsp; &nbsp; 1/6/2021 - 29/9/2021 </p>
+    </div>
+    <p><b>Numero de quartos:</b> {{tipoDeQuarto.nQuarto}}</p> 
+    <!--<p><b>Numero de quartos disponíveis = </b> {{availableCount}}</p>-->
+    <p><b>Servicos:</b></p>
+    <ul>
+        <li *ngFor ='let servico of tipoDeQuarto.servicos'>
+            {{servico}}
+        </li>
+    </ul>
+
+    <br><br>
+    <a href="javascript:void(0)" (click)="goBack()" >
+        <button type="button"class="btn btn-primary"> Voltar </button>
+    </a>
+</div>

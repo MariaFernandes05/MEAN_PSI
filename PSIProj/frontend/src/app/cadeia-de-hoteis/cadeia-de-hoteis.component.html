@@ -1,0 +1,15 @@
+<div class="html">
+    <h1>Lista de hoteis:</h1>
+    <br>
+    <br>
+    <div >
+        <div *ngFor ="let hotel of cadeiaDeHoteis; let i = index">
+            <a (click)="boas(hotel)">
+            <div class="boas">
+                <h1>{{hotel.nome}}</h1>
+                <h3> <img src="{{imagem[i]}}" alt="Random Hotel Photo"> </h3> 
+	            <br><br><br>
+            </div></a>
+        </div>
+    </div>
+</div>

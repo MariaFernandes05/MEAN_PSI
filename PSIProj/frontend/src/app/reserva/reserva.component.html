@@ -1,0 +1,43 @@
+<br>
+    <span>
+        <a href="javascript:void(0)" (click)="goBack()" >
+            <button type="button"class="btn btn-primary"> Voltar </button>
+        </a><br><br>
+        <h1 class="titulo"> Reserva para {{tipoDeQuarto.tipo}}</h1>
+    </span>
+    <form #d="ngForm" id="primeiro" (ngSubmit)="onSubmit(d, 'segundo', 'botao1')" novalidate>
+       <h2>Confirmar Datas</h2>
+       <label>Check-In:</label> &nbsp;
+       <input type="date" id="data" min={{dataHoje}} (ngModelChange)="filtroDatas()" [ngModel]="dataI" ngModel name="data" required>&nbsp;&nbsp;&nbsp;
+       <label>Check-Out:</label> &nbsp; <input type="date" (ngModelChange)="filtroDatas()" id="dataF" min={{dataHoje}} [ngModel]="dataF" ngModel name="dataF" required>
+       &nbsp;&nbsp;&nbsp; Custo: &nbsp; {{custo}}€ <br><br><h2>Confirmar Tipo de Quarto</h2>
+       <select (change)="filtroDatas()" id="quartos">
+          <option *ngFor="let q of quartos" [value]="q.tipo" [selected]='q.tipo == tipoDeQuarto.tipo'> {{q.tipo}}</option>
+       </select>
+       <br><br>
+       <button class="btn btn-primary" id="botao1">Confirmar</button>
+    </form>
+    <br>
+    <form #f="ngForm" style="display:none" id="segundo" (ngSubmit)="onSubmit(f, 'terceiro', 'botao2')" novalidate>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" ngModel required><br><br>
+        <label for="morada">Morada:</label><br>
+        <input type="text" id="morada" name="morada" ngModel required><br><br>
+        <label for="telefone">Telefone:</label><br>
+        <input type="tel" id="telefone" data-toggle="tooltip" title='Meter o "+" seguido do indicativo (1 a 3 digitos), dar um espaço e depois 9 digitos' placeholder="+351 965467384" ngModel name="telefone" pattern="[+]{1}[0-9]{1,3} [0-9]{9}$" value="+" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" placeholder="example@example.do" id="email" ngModel name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
+        <label for="NIF">NIF:</label><br>
+        <input type="number" id="NIF" ngModel pattern="[0-9]{9}" name="NIF" required><br><br>
+        <button class="btn btn-primary" id="botao2">Confirmar</button>
+    </form>
+    
+    <form #c="ngForm" id="terceiro" style="display:none" (ngSubmit)="openDialog(c)" novalidate>
+        <label for="numCartao">Número do cartão:</label><br>
+        <input type="tel" id="numCartao" ngModel pattern="[0-9]{16}" name="numCartao" required><br><br>
+        <label for="prazoValidade">Prazo de validade:</label><br>
+        <input type="date" id="dataValidade" min={{dataHoje}} ngModel name="data" required><br><br>
+        <label for="codigoCVV">Código CVV:</label><br>
+        <input type="number" id="codigoCVV" ngModel name="codigoCVV" pattern="[0-9]{3,4}" required><br><br>
+        <button class="btn btn-primary" id="concluir"> Concluir </button>
+   </form><br>

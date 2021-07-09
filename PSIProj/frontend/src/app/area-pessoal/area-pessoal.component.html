@@ -1,0 +1,69 @@
+<div class="html" id="pagina"> 
+    <br>
+    <span>
+	<a href="javascript:void(0)" (click)="goBack()" >
+            <button type="button"class="btn btn-primary"> Voltar </button>
+        </a>
+	<br><br> 
+        <h1 class="titulo"> Área Pessoal </h1> 
+    </span>
+    <br>
+    <br>
+    <h2> Reservas: </h2>
+    <form>  
+        <p><b>Filtrar por Custo</b></p>
+        <label for="custoMin">Custo mínimo:</label> &nbsp;
+        <input type="number" id="min" name="min"> &nbsp;&nbsp;
+        <label for="custoMax">Custo máximo:</label> &nbsp;
+        <input type="number" id="max" name="max"> &nbsp;
+	<button type="button" class="btn btn-primary" (click)="aplicarFiltro()"> Aplicar </button>
+	<br><br>	
+	<p><b>Filtar por Data Check-In</b></p> 
+        <label>Inicio do Filtro:</label> &nbsp;<input type="date" id="dataI" ngModel name="dataI" required>&nbsp;&nbsp;&nbsp;
+        <label>Fim do Filtro:</label> &nbsp; <input type="date" id="dataF" ngModel ngModel name="dataF" required> &nbsp;
+	<button type="button" class="btn btn-primary" (click)="filtroDatas()"> Aplicar </button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <div id="lista">
+	
+	<h3>Reservas passadas:</h3>
+	<br>
+	<div id="passadas">
+		<div *ngFor ="let reservaP of reservasPassadas" >
+        		<div>
+				<p><b>hotel:</b> <span>{{reservaP.hotel}}</span></p>
+                		<p><b>tipoDeQuarto:</b> <span>{{reservaP.tipoDeQuarto}}</span> </p>
+                		<p><b>custo:</b> <span>{{reservaP.custo}}</span> €</p>
+                		<p><b>dataCheckIn:</b> <span>{{reservaP.dataCheckIn | date: "y-MM-dd" }}</span> </p>
+                		<p><b>dataCheckOut:</b> <span>{{reservaP.dataCheckOut | date: "y-MM-dd"}}</span> </p>
+                		<hr>
+                		<br>		
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<h3>Reservas futuras:</h3>
+	<br>
+	<div id="futuras">
+        	<div *ngFor ="let reservaF of reservasFuturas" >
+                	<div>
+                        	<p><b>hotel:</b> <span>{{reservaF.hotel}}</span></p>
+                        	<p><b>tipoDeQuarto:</b> <span>{{reservaF.tipoDeQuarto}}</span> </p>
+                        	<p><b>custo:</b> <span>{{reservaF.custo}}</span> €</p>
+                        	<p><b>dataCheckIn:</b> <span>{{reservaF.dataCheckIn | date: "y-MM-dd" }}</span> </p>
+                        	<p><b>dataCheckOut:</b> <span>{{reservaF.dataCheckOut | date: "y-MM-dd"}}</span> </p>
+			     	<br><button class="btn btn-primary" (click)="editar(reservaF._id)"> Editar Reserva </button>
+				<hr>
+                        	<br>
+        		</div>
+        	</div>
+	</div>
+		
+    </div>
+  	
+    <button type="button" class="btn btn-primary" (click)="onEdit()"> Topo da Página </button>
+    <br><br>
+</div>
